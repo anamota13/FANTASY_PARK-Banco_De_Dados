@@ -146,7 +146,7 @@ CREATE TABLE Funcionario (
 **Criação da tabela Telefone_Funcionario**
 ```sql
 CREATE TABLE Telefone_Funcionario (
-    ID_Telefone INT PRIMARY KEY AUTO_INCREMENT,
+    ID_Telefone INT PRIMARY KEY IDENTITY,
     ID_Funcionario INT,
     Telefone VARCHAR(20),
     FOREIGN KEY (ID_Funcionario) REFERENCES Funcionario(ID_Funcionario)
