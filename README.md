@@ -75,6 +75,7 @@ CREATE DATABASE Fantasy_Park
 ```
 
 Agora, para que nosso banco fique estruturado, foi efetuado a criação das tabelas da seguinte maneira:
+
 **Criação da tabela Visitante**
 ``` sql
 USE Fantasy_Park;
@@ -92,6 +93,7 @@ CREATE TABLE Visitante (
 ```
 
 O próximo passo foi criar as tabelas dos atributos multivalorados, por exemplo, Telefone e E-mail: 
+
 **Telefone_Visitante:**
 ``` sql
 CREATE TABLE Telefone_Visitante (
