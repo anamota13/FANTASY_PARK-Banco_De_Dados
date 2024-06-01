@@ -1,4 +1,4 @@
-![image](https://github.com/anamota13/FANTASY_PARK-Banco_De_Dados/assets/110187484/472d7fff-6cfe-42b1-b2c5-55104a47633c)# FANTASY PARK: Gestão de Parque de Diversões
+# FANTASY PARK: Gestão de Parque de Diversões
 
 ## Descrição do Projeto
 
