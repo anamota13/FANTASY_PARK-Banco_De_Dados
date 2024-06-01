@@ -77,8 +77,9 @@ CREATE DATABASE Fantasy_Park
 
 Agora, para que nosso banco fique estruturado, foi efetuado a criação das tabelas da seguinte maneira: 
 ``` sql
+USE Fantasy_Park;
 CREATE TABLE Visitante (
-    ID_Visitante INT AUTO_INCREMENT PRIMARY KEY,
+    ID_Visitante INT IDENTITY(1,1) PRIMARY KEY,
     Nome VARCHAR(100) NOT NULL,
     CPF CHAR(14) NOT NULL UNIQUE,
     Rua VARCHAR(50) NOT NULL,
