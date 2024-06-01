@@ -337,7 +337,7 @@ Para utilizar a operação **CREATE** foi inserido um novo registro a partir do 
 INSERT INTO Funcionario (Nome, CPF, Data_Contratacao, Cargo, Salario, ID_Parque)
 VALUES ('João da Silva', '123.456.789-00', '2024-06-01', 'Gerente de Operações', 5000.00, 1);
 ```
-https://github.com/anamota13/FANTASY_PARK-Banco_De_Dados/blob/main/CRUD/CREATE.png?raw=true
+![image](https://github.com/anamota13/FANTASY_PARK-Banco_De_Dados/blob/main/CRUD/CREATE.png?raw=true)
 
 ### CRUD: READ
 Para utilizar a operação **READ** foi feita a leitura de duas situações: 
@@ -345,10 +345,14 @@ Para utilizar a operação **READ** foi feita a leitura de duas situações:
 ```sql
 SELECT * FROM Funcionario;
 ```
+![image](https://github.com/anamota13/FANTASY_PARK-Banco_De_Dados/blob/main/CRUD/READ%201.png?raw=true)
+
 2. Lendo o registro de apenas funcionário da área da Limpeza:
 ```sql
 SELECT * FROM Funcionario WHERE Cargo = 'Limpeza';
 ```
+![image](https://github.com/anamota13/FANTASY_PARK-Banco_De_Dados/blob/main/CRUD/READ%202.png?raw=true)
+
 ### CRUD: UPDATE
 Para utilizar a operação **UPDATE** foi atualizado o salário do funcionário João da Silva: 
 ```sql
@@ -356,11 +360,15 @@ UPDATE Funcionario
 SET Salario = 6000.00 
 WHERE Nome = 'João da Silva';
 ```
+![image](https://github.com/anamota13/FANTASY_PARK-Banco_De_Dados/blob/main/CRUD/UPDATE.png?raw=true)
+
 ### CRUD: DELETE
 Para utilizar a operação **DELETE** foi deletado o registro do funcionário João da Silva: 
 ```sql
 DELETE FROM Funcionario 
 WHERE Nome = 'João da Silva';
 ```
+![image](https://github.com/anamota13/FANTASY_PARK-Banco_De_Dados/blob/main/CRUD/DELETE.png?raw=true)
+
 Então, foi utlizando todos as operações do CRUD, criando o registro do funcionário João da Silva, lendo todos os registros dos funcionários e dos que operam na área da limpeza, atualizando o salário do funcionário João da Silva e, por fim, deletando o registro dele. 
 
