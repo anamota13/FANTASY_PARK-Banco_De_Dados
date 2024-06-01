@@ -61,11 +61,12 @@ A empresa Fantasy Parks administra diversos parques de diversões espalhados pel
 ## 2. Modelagem Conceitual
 
 Veja abaixo a Modelagem Conceitual do projeto: 
-
+![Modelo Conceitual - BPMN](https://github.com/anamota13/FANTASY_PARK-Banco_De_Dados/assets/110187484/1eaff1f5-b27a-4456-856c-3a322b1b25d8)
 
 ## 3. Modelagem Lógica
 
 Veja abaixo a Modelagem Lógica do projeto: 
+![Modelo Lógico -BPMN](https://github.com/anamota13/FANTASY_PARK-Banco_De_Dados/assets/110187484/cbbdb455-b41d-4cf0-b7e8-651554765e54)
 
 ## 4. Modelagem Física 
 
