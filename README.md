@@ -235,6 +235,32 @@ WHERE
     Nome = 'João da Silva';
 ```
 
+**Inserção dos e-mails na tabela Email_Visitante**
+```sql
+-- Inserindo os emails dos visitantes na tabela Email_Visitante
+INSERT INTO Email_Visitante (ID_Visitante, Email) VALUES
+(54, 'joaodasilva@example.com'), (54, 'joaodasilva2@example.com'),
+(60, 'mariaoliveira@example.com'), (60, 'mariaoliveira2@example.com'),
+(42, 'pedrosantos@example.com'), (42, 'pedrosantos2@example.com'),
+(61, 'anasouza@example.com'), (61, 'anasouza2@example.com'),
+(59, 'carlospereira@example.com'), (59, 'carlospereira2@example.com'),
+(48, 'fernandalima@example.com'), (48, 'fernandalima2@example.com'),
+(53, 'gabrielcosta@example.com'), (53, 'gabrielcosta2@example.com'),
+(45, 'julianaoliveira@example.com'), (45, 'julianaoliveira2@example.com'),
+(50, 'lucasmendes@example.com'), (50, 'lucasmendes2@example.com'),
+(58, 'marianaalmeida@example.com'), (58, 'marianaalmeida2@example.com'),
+(44, 'rafaelsilva@example.com'), (44, 'rafaelsilva2@example.com'),
+(51, 'sandrasantos@example.com'), (51, 'sandrasantos2@example.com'),
+(57, 'thiagooliveira@example.com'), (57, 'thiagooliveira2@example.com'),
+(52, 'vanessapereira@example.com'), (52, 'vanessapereira2@example.com'),
+(47, 'amandasouza@example.com'), (47, 'amandasouza2@example.com'),
+(56, 'brunocosta@example.com'), (56, 'brunocosta2@example.com'),
+(46, 'carolinalima@example.com'), (46, 'carolinalima2@example.com'),
+(49, 'danielmendes@example.com'), (49, 'danielmendes2@example.com'),
+(55, 'elainealmeida@example.com'), (55, 'elainealmeida2@example.com'),
+(43, 'fabiosantos@example.com'), (43, 'fabiosantos2@example.com');
+```
+
 **Inserção na tabela Funcionario**
 ```sql
 INSERT INTO Funcionario (ID_Funcionario, Nome, CPF, Data_Contratacao, Cargo, Salario, ID_Parque)
