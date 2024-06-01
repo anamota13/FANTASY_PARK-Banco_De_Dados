@@ -329,6 +329,36 @@ VALUES
     (19, 'Inteira', 50.00, '2024-05-19', 55, 19),
     (20, 'Inteira', 50.00, '2024-05-20', 43, 20);
 ```
+## 6. CRUD: CREATE, READ, UPDATE, DELETE
 
-
+### CRUD: CREATE
+Para utilizar a operação **CREATE** foi inserido um novo registro a partir do INSERT. Veja a criação de um novo registro na tabela Funcionario: 
+```sql
+INSERT INTO Funcionario (Nome, CPF, Data_Contratacao, Cargo, Salario, ID_Parque)
+VALUES ('João da Silva', '123.456.789-00', '2024-06-01', 'Gerente de Operações', 5000.00, 1);
+```
+### CRUD: READ
+Para utilizar a operação **READ** foi feita a leitura de duas situações: 
+1. Lendo o registro de todos os funcionários:
+```sql
+SELECT * FROM Funcionario;
+```
+2. Lendo o registro de apenas funcionário da área da Limpeza:
+```sql
+SELECT * FROM Funcionario WHERE Cargo = 'Limpeza';
+```
+### CRUD: UPDATE
+Para utilizar a operação **UPDATE** foi atualizado o salário do funcionário João da Silva: 
+```sql
+UPDATE Funcionario 
+SET Salario = 6000.00 
+WHERE Nome = 'João da Silva';
+```
+### CRUD: DELETE
+Para utilizar a operação **DELETE** foi deletado o registro do funcionário João da Silva: 
+```sql
+DELETE FROM Funcionario 
+WHERE Nome = 'João da Silva';
+```
+Então, foi utlizando todos as operações do CRUD, criando o registro do funcionário João da Silva, lendo todos os registros dos funcionários e dos que operam na área da limpeza, atualizando o salário do funcionário João da Silva e, por fim, deletando o registro dele. 
 
