@@ -337,6 +337,8 @@ Para utilizar a operação **CREATE** foi inserido um novo registro a partir do 
 INSERT INTO Funcionario (Nome, CPF, Data_Contratacao, Cargo, Salario, ID_Parque)
 VALUES ('João da Silva', '123.456.789-00', '2024-06-01', 'Gerente de Operações', 5000.00, 1);
 ```
+https://github.com/anamota13/FANTASY_PARK-Banco_De_Dados/blob/main/CRUD/CREATE.png?raw=true
+
 ### CRUD: READ
 Para utilizar a operação **READ** foi feita a leitura de duas situações: 
 1. Lendo o registro de todos os funcionários:
