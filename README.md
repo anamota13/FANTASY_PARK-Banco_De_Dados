@@ -237,7 +237,6 @@ WHERE
 
 **Inserção dos e-mails na tabela Email_Visitante**
 ```sql
--- Inserindo os emails dos visitantes na tabela Email_Visitante
 INSERT INTO Email_Visitante (ID_Visitante, Email) VALUES
 (54, 'joaodasilva@example.com'), (54, 'joaodasilva2@example.com'),
 (60, 'mariaoliveira@example.com'), (60, 'mariaoliveira2@example.com'),
@@ -259,6 +258,30 @@ INSERT INTO Email_Visitante (ID_Visitante, Email) VALUES
 (49, 'danielmendes@example.com'), (49, 'danielmendes2@example.com'),
 (55, 'elainealmeida@example.com'), (55, 'elainealmeida2@example.com'),
 (43, 'fabiosantos@example.com'), (43, 'fabiosantos2@example.com');
+```
+**Inserção dos telefones dos visitantes na tabela Telefone_Visitante**
+```sql
+INSERT INTO Telefone_Visitante (ID_Visitante, Telefone) VALUES
+(54, '1699999999'), (54, '1633333333'),
+(60, '1199999999'),
+(42, '1199999999'), (42, '1199888888'),
+(61, '1199888888'),
+(59, '1199777777'), (59, '1199666666'),
+(48, '1199555555'),
+(53, '1199444444'), (53, '1199333333'),
+(45, '1199222222'),
+(50, '1199111111'),
+(58, '1199000000'), (58, '1199888777'),
+(44, '1199666555'),
+(51, '1199555666'), (51, '1199444777'),
+(57, '1199333888'),
+(52, '1199222999'), (52, '1199111000'),
+(47, '1199000111'),
+(56, '1199888222'),
+(46, '1199666333'),
+(49, '1199555444'),
+(55, '1199444555'),
+(43, '1199333666');
 ```
 
 **Inserção na tabela Funcionario**
