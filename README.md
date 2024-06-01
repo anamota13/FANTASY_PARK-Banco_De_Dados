@@ -143,6 +143,15 @@ CREATE TABLE Funcionario (
     FOREIGN KEY (ID_Parque) REFERENCES Parque(ID_Parque),
 );
 ```
+**Criação da tabela Telefone_Funcionario**
+```sql
+CREATE TABLE Telefone_Funcionario (
+    ID_Telefone INT PRIMARY KEY AUTO_INCREMENT,
+    ID_Funcionario INT,
+    Telefone VARCHAR(20),
+    FOREIGN KEY (ID_Funcionario) REFERENCES Funcionario(ID_Funcionario)
+);
+```
 
 **Criação da tabela Parque**
 ``` sql
