@@ -46,7 +46,6 @@ A empresa Fantasy Parks administra diversos parques de diversões espalhados pel
 ### 4. Atração
 - **ID_Atracao**: Chave primária que identifica unicamente cada atração. (Atributo Simples)
 - **Nome**: Nome da atração. (Atributo Simples)
-- **Tipo**: Tipo da atração, como Montanha-Russa, Carrossel etc. (Atributo Simples)
 - **Capacidade**: Capacidade máxima de pessoas que a atração pode acomodar. (Atributo Simples)
 - **Tempo_Duracao**: Duração média da atração em minutos. (Atributo Simples)
 - **ID_Parque**: Identificação do parque onde a atração está localizada. (Chave Estrangeira)
@@ -75,7 +74,8 @@ Para contruir a Modelagem Física do Fantasy Park foi criado o banco de dados:
 CREATE DATABASE Fantasy_Park
 ```
 
-Agora, para que nosso banco fique estruturado, foi efetuado a criação das tabelas da seguinte maneira: 
+Agora, para que nosso banco fique estruturado, foi efetuado a criação das tabelas da seguinte maneira:
+**Criação da tabela Visitante**
 ``` sql
 USE Fantasy_Park;
 CREATE TABLE Visitante (
@@ -90,5 +90,102 @@ CREATE TABLE Visitante (
     Data_Nascimento DATE NOT NULL,
 );
 ```
+
+O próximo passo foi criar as tabelas dos atributos multivalorados, por exemplo, Telefone e E-mail: 
+**Telefone_Visitante:**
+``` sql
+CREATE TABLE Telefone_Visitante (
+    ID_Telefone INT IDENTITY(1,1) PRIMARY KEY,
+    ID_Visitante INT,
+    Telefone VARCHAR(11),
+    FOREIGN KEY (ID_Visitante) REFERENCES Visitante(ID_Visitante)
+);
+```
+
+**Email_Visitante:**
+```sql
+CREATE TABLE Email_Visitante (
+    ID_Email INT IDENTITY(1,1) PRIMARY KEY,
+    ID_Visitante INT,
+    Email VARCHAR(60),
+    FOREIGN KEY (ID_Visitante) REFERENCES Visitante(ID_Visitante)
+);
+```
+
+Para concluir a criação da estrutura da tabela Visitante, foi calculado o atributo Idade (Atributo Derivado): 
+``` sql
+CREATE VIEW VisitanteComIdade AS
+SELECT
+    ID_Visitante,
+    Data_Nascimento,
+    CASE 
+        WHEN MONTH(Data_Nascimento) < MONTH(GETDATE()) 
+            OR (MONTH(Data_Nascimento) = MONTH(GETDATE()) AND DAY(Data_Nascimento) <= DAY(GETDATE())) 
+        THEN DATEDIFF(YEAR, Data_Nascimento, GETDATE()) 
+        ELSE DATEDIFF(YEAR, Data_Nascimento, GETDATE()) - 1 
+    END AS Idade
+FROM Visitante;
+```
+
+**Criação da tabela Funcionário**
+``` sql
+CREATE TABLE Funcionario (
+    ID_Funcionario INT PRIMARY KEY,
+    Nome VARCHAR(100) NOT NULL,
+    CPF CHAR(14) NOT NULL UNIQUE,
+    Data_Contratacao DATE NOT NULL,
+    Cargo VARCHAR(30) NOT NULL,
+    Salario DECIMAL(10, 2) NOT NULL,
+    ID_Parque INT,
+    ID_Funcionario_Atendimento INT,
+    FOREIGN KEY (ID_Parque) REFERENCES Parque(ID_Parque),
+    FOREIGN KEY (ID_Funcionario_Atendimento) REFERENCES Funcionario(ID_Funcionario)
+);
+```
+
+**Criação da tabela Parque**
+``` sql
+CREATE TABLE Parque (
+    ID_Parque INT PRIMARY KEY,
+    Nome VARCHAR(100) NOT NULL,
+    Rua VARCHAR(50) NOT NULL,
+    Numero VARCHAR(10) NOT NULL,
+    Cidade VARCHAR(30) NOT NULL,
+    Estado CHAR(2) NOT NULL,
+    Bairro CHAR(15) NOT NULL,
+    CEP CHAR(8) NOT NULL,
+    Telefone VARCHAR(11) NOT NULL,
+    Gerente VARCHAR(100) NOT NULL
+);
+```
+
+**Criação da tabela Atração**
+``` sql
+CREATE TABLE Atracao (
+    ID_Atracao INT PRIMARY KEY,
+    Nome VARCHAR(100) NOT NULL,
+    Capacidade INT NOT NULL,
+    Tempo_Duracao INT NOT NULL,
+    ID_Parque INT,
+    FOREIGN KEY (ID_Parque) REFERENCES Parque(ID_Parque)
+);
+```
+
+**Criação da tabela Ingresso**
+``` sql
+CREATE TABLE Ingresso (
+    ID_Ingresso INT PRIMARY KEY,
+    Tipo VARCHAR(50) NOT NULL,
+    Preco DECIMAL(10, 2) NOT NULL,
+    Data_Compra DATE NOT NULL,
+    ID_Visitante INT,
+    ID_Parque INT,
+    FOREIGN KEY (ID_Visitante) REFERENCES Visitante(ID_Visitante),
+    FOREIGN KEY (ID_Parque) REFERENCES Parque(ID_Parque)
+);
+```
+
+
+
 
 
