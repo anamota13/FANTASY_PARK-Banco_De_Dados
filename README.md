@@ -370,5 +370,132 @@ WHERE Nome = 'João da Silva';
 ```
 ![image](https://github.com/anamota13/FANTASY_PARK-Banco_De_Dados/blob/main/CRUD/DELETE.png?raw=true)
 
-Então, foi utilizadas todas as operações do CRUD, criando o registro do funcionário João da Silva, lendo todos os registros dos funcionários e dos que operam na área da limpeza, atualizando o salário do funcionário João da Silva e, por fim, deletando o registro dele. 
+Então, foram utilizadas todas as operações do CRUD, criando o registro do funcionário João da Silva, lendo todos os registros dos funcionários e dos que operam na área da limpeza, atualizando o salário do funcionário João da Silva e, por fim, deletando o registro dele. 
+
+### 7. Relatórios
+ Abaixo estão presentes, utilizando a Seleção, Filtro e Ordenação, 10 consultas que exibem os dados do Banco de Dados demonstrando a relação entre as tabelas.
+
+ **Consulta 1: Listagem de todos os visitantes e seus respectivos parques**
+ ```sql
+SELECT Visitante.Nome AS Nome_Visitante, Parque.Nome AS Nome_Parque
+FROM Visitante
+JOIN Ingresso ON Visitante.ID_Visitante = Ingresso.ID_Visitante
+JOIN Parque ON Ingresso.ID_Parque = Parque.ID_Parque;
+```
+![image](https://github.com/anamota13/FANTASY_PARK-Banco_De_Dados/assets/110187484/18cfe3b6-c429-4d48-991c-1d71a0af2733)
+
+**Consulta 2: Listagem de todos os funcionários e seus respectivos parques**
+```sql
+SELECT Funcionario.Nome AS Nome_Funcionario, Parque.Nome AS Nome_Parque
+FROM Funcionario 
+JOIN Parque ON Funcionario.ID_Parque = Parque.ID_Parque;
+```
+![image](https://github.com/anamota13/FANTASY_PARK-Banco_De_Dados/assets/110187484/a76ebc12-5638-486a-b82b-ce5e5afcc1e5)
+
+**Consulta 3: Listagem de todos os visitantes ordenados por idade**
+```sql
+SELECT Nome, Data_Nascimento, DATEDIFF(YEAR, Data_Nascimento, GETDATE()) AS Idade
+FROM Visitante
+ORDER BY Idade;
+```
+![image](https://github.com/anamota13/FANTASY_PARK-Banco_De_Dados/assets/110187484/65e6f94a-41e8-4096-8c18-0a2ce0a98a42)
+
+**Consulta 4: Listagem de todos os visitantes que compraram ingressos do tipo "MEIA"**
+```sql
+SELECT Visitante.Nome AS Nome_Visitante, Ingresso.Tipo AS Tipo_Ingresso
+FROM Visitante 
+JOIN Ingresso ON Visitante.ID_Visitante = Ingresso.ID_Visitante
+WHERE Ingresso.Tipo = 'Meia';
+```
+![image](https://github.com/anamota13/FANTASY_PARK-Banco_De_Dados/assets/110187484/4abde78c-acc1-4342-b994-fe6529ce4e96)
+
+**Consulta 5: Listagem de todos os visitantes que compraram ingressos do tipo "INTEIRA"**
+´´´sql
+SELECT Visitante.Nome AS Nome_Visitante, Ingresso.Tipo AS Tipo_Ingresso
+FROM Visitante 
+JOIN Ingresso ON Visitante.ID_Visitante = Ingresso.ID_Visitante
+WHERE Ingresso.Tipo = 'Inteira';
+´´´
+![image](https://github.com/anamota13/FANTASY_PARK-Banco_De_Dados/assets/110187484/9f471114-63c8-439f-b654-e8c8e30094ce)
+
+**Consulta 6: Listagem de todos os funcionários com o cargo de Segurança em ordem alfabética**
+```sql
+SELECT Nome, Cargo
+FROM Funcionario
+WHERE Cargo = 'Segurança'
+ORDER BY Nome;
+```
+![image](https://github.com/anamota13/FANTASY_PARK-Banco_De_Dados/assets/110187484/664c7cd1-4cf0-4542-ab73-a5cef2bc0a1b)
+
+**Consulta 7: Listagem dos visitantes atendidos por cada funcionário e seus respectivos parques**
+```sql
+SELECT Funcionario.Nome AS Nome_Funcionario, Visitante.Nome AS Nome_Visitante, Parque.Nome AS Nome_Parque
+FROM Funcionario
+JOIN Visitante ON Funcionario.ID_Funcionario = Visitante.ID_Funcionario
+JOIN Parque ON Funcionario.ID_Parque = Parque.ID_Parque;
+```
+![image](https://github.com/anamota13/FANTASY_PARK-Banco_De_Dados/assets/110187484/c8b1acae-afd8-443d-9d80-f00403fb685c)
+
+**Consulta 8: Listagens dos funcionários que possuem maior tempo de "casa" em ordem decrescente**7
+```sql
+SELECT 
+    Nome, 
+    Data_Contratacao, 
+    Cargo, 
+    ID_Parque
+FROM 
+    Funcionario
+ORDER BY 
+    Data_Contratacao ASC;
+```
+![image](https://github.com/anamota13/FANTASY_PARK-Banco_De_Dados/assets/110187484/52b50ffc-8fe5-41ae-9274-3f8e40e9860a)
+
+**Consulta 9: Listagem de número de visitantes atendidos por funcionário e nome do parque**
+```sql
+SELECT 
+    Funcionario.Nome AS Nome_Funcionario,
+    Parque.Nome AS Nome_Parque,
+    COUNT(Visitante.ID_Visitante) AS Numero_Visitantes_Atendidos
+FROM 
+    Funcionario
+LEFT JOIN 
+    Parque ON Funcionario.ID_Parque = Parque.ID_Parque
+LEFT JOIN 
+    Visitante ON Funcionario.ID_Funcionario = Visitante.ID_Funcionario
+GROUP BY 
+    Funcionario.Nome, Parque.Nome
+ORDER BY 
+    Numero_Visitantes_Atendidos DESC;
+```
+![Consulta 9(P1)](https://github.com/anamota13/FANTASY_PARK-Banco_De_Dados/assets/110187484/c3fb14c2-e3d4-4e07-a16d-878929640de7)
+![Consulta 9(P2)](https://github.com/anamota13/FANTASY_PARK-Banco_De_Dados/assets/110187484/d199c699-0da7-4e8b-aec4-4741140f22c1)
+
+**Consulta 10: Detalhes de Visitantes, Ingressos, Funcionários e Parques**
+OBS:A consulta vai mostrar o nome do visitante, o tipo de ingresso que ele comprou, o nome do funcionário que o atendeu, e o nome do parque onde tudo isso ocorreu.
+```sql
+SELECT 
+    Visitante.Nome AS Nome_Visitante,
+    Ingresso.Tipo AS Tipo_Ingresso,
+    Funcionario.Nome AS Nome_Funcionario,
+    Parque.Nome AS Nome_Parque,
+    Ingresso.Data_Compra,
+    Atração.Nome AS Nome_Atracao,
+    Atração.Capacidade,
+    Atração.Tempo_Duracao
+FROM 
+    Visitante
+JOIN 
+    Ingresso ON Visitante.ID_Visitante = Ingresso.ID_Visitante
+JOIN 
+    Funcionario ON Visitante.ID_Funcionario = Funcionario.ID_Funcionario
+JOIN 
+    Parque ON Ingresso.ID_Parque = Parque.ID_Parque
+JOIN 
+    Atração ON Parque.ID_Parque = Atração.ID_Parque
+ORDER BY 
+    Visitante.Nome, Ingresso.Data_Compra;
+```
+![image](https://github.com/anamota13/FANTASY_PARK-Banco_De_Dados/assets/110187484/eb5d83f5-634e-40d8-a095-f951b5bc2b11)
+![image](https://github.com/anamota13/FANTASY_PARK-Banco_De_Dados/assets/110187484/c92160b7-7fc2-47a6-9074-9e72561b610b)
+
 
