@@ -1,4 +1,4 @@
-# FANTASY PARK: Gestão de Parque de Diversões
+![image](https://github.com/anamota13/FANTASY_PARK-Banco_De_Dados/assets/110187484/472d7fff-6cfe-42b1-b2c5-55104a47633c)# FANTASY PARK: Gestão de Parque de Diversões
 
 ## Descrição do Projeto
 
@@ -140,9 +140,7 @@ CREATE TABLE Funcionario (
     Cargo VARCHAR(30) NOT NULL,
     Salario DECIMAL(10, 2) NOT NULL,
     ID_Parque INT,
-    ID_Funcionario_Atendimento INT,
     FOREIGN KEY (ID_Parque) REFERENCES Parque(ID_Parque),
-    FOREIGN KEY (ID_Funcionario_Atendimento) REFERENCES Funcionario(ID_Funcionario)
 );
 ```
 
@@ -190,6 +188,8 @@ CREATE TABLE Ingresso (
 ## 5. Inserção de Dados
 
 Nessa etapa foi realizada a inserção dos dados em cada uma das tabelas, contendo no mínimo 20 dados inseridos.
+
+**Inserção na tabela Visitante**
 ```sql
 INSERT INTO Visitante (Nome, CPF, Rua, Numero, Cidade, Estado, CEP, Data_Nascimento)
 VALUES
@@ -226,7 +226,109 @@ WHERE
     Nome = 'João da Silva';
 ```
 
+**Inserção na tabela Funcionario**
+```sql
+INSERT INTO Funcionario (ID_Funcionario, Nome, CPF, Data_Contratacao, Cargo, Salario, ID_Parque)
+VALUES
+    (1, 'Ana Silva', '12345678901', '2023-01-10', 'Atendente', 2500.00, 1),
+    (2, 'Carlos Oliveira', '23456789012', '2022-11-15', 'Gerente', 4500.00, 1),
+    (3, 'Daniel Souza', '34567890123', '2023-03-20', 'Segurança', 2800.00, 2),
+    (4, 'Elaine Santos', '45678901234', '2022-08-05', 'Limpeza', 2200.00, 2),
+    (5, 'Fernanda Pereira', '56789012345', '2023-05-12', 'Atendente', 2500.00, 3),
+    (6, 'Gabriel Lima', '67890123456', '2022-12-30', 'Técnico de Manutenção', 3200.00, 3),
+    (7, 'Hugo Costa', '78901234567', '2023-02-18', 'Atendente', 2500.00, 4),
+    (8, 'Isabela Ferreira', '89012345678', '2022-09-25', 'Vendedor de Ingressos', 2700.00, 4),
+    (9, 'Juliana Almeida', '90123456789', '2023-06-08', 'Operador de Atrações', 2900.00, 5),
+    (10, 'Kevin Ramos', '01234567890', '2022-10-11', 'Atendente', 2500.00, 5),
+    (11, 'Lucas Oliveira', '98765432101', '2023-04-03', 'Gerente', 4500.00, 6),
+    (12, 'Mariana Silva', '87654321012', '2022-07-19', 'Segurança', 2800.00, 6),
+    (13, 'Natalia Costa', '76543210923', '2023-01-25', 'Limpeza', 2200.00, 7),
+    (14, 'Otavio Pereira', '65432109834', '2022-11-28', 'Atendente', 2500.00, 7),
+    (15, 'Pedro Santos', '54321098745', '2023-05-16', 'Técnico de Manutenção', 3200.00, 8),
+    (16, 'Rafaela Oliveira', '43210987656', '2022-12-07', 'Atendente', 2500.00, 8),
+    (17, 'Sandra Lima', '32109876567', '2023-02-22', 'Vendedor de Ingressos', 2700.00, 9),
+    (18, 'Thiago Almeida', '21098765478', '2022-09-10', 'Operador de Atrações', 2900.00, 9),
+    (19, 'Vanessa Costa', '10987654390', '2023-06-03', 'Atendente', 2500.00, 10),
+    (20, 'Wagner Santos', '09876543201', '2022-10-26', 'Gerente', 4500.00, 10);
+```
 
+**Inserção na tabela Parque**
+```sql
+INSERT INTO Parque (ID_Parque, Nome, Rua, Numero, Cidade, Estado, Bairro, CEP, Telefone, Gerente)
+VALUES
+    (1, 'Parque da Aventura', 'Rua das Flores', '123', 'São Paulo', 'SP', 'Centro', '12345678', '11 12345678', 'Carlos Silva'),
+    (2, 'Parque dos Sonhos', 'Avenida dos Sonhos', '456', 'Rio de Janeiro', 'RJ', 'Copacabana', '98765432', '21 98765432', 'Ana Oliveira'),
+    (3, 'Parque da Diversão', 'Rua das Alegrias', '789', 'Belo Horizonte', 'MG', 'Santo Antônio', '45678912', '31 45678912', 'José Santos'),
+    (4, 'Parque das Emoções', 'Avenida da Fantasia', '1011', 'Salvador', 'BA', 'Barra', '32165498', '71 32165498', 'Maria Costa'),
+    (5, 'Parque da Alegria', 'Rua da Alegria', '1213', 'Florianópolis', 'SC', 'Centro', '78912345', '48 78912345', 'Paulo Oliveira'),
+    (6, 'Parque Radical', 'Avenida da Aventura', '1415', 'Brasília', 'DF', 'Asa Sul', '65498732', '61 65498732', 'Carla Rodrigues'),
+    (7, 'Parque do Encanto', 'Rua do Encanto', '1617', 'Porto Alegre', 'RS', 'Menino Deus', '23456789', '51 23456789', 'Rafaela Almeida'),
+    (8, 'Parque dos Sonhos', 'Avenida dos Sonhos', '1819', 'Recife', 'PE', 'Boa Viagem', '87654321', '81 87654321', 'Fernando Silva'),
+    (9, 'Parque da Aventura', 'Rua da Diversão', '2021', 'Fortaleza', 'CE', 'Aldeota', '34567890', '85 34567890', 'Amanda Costa'),
+    (10, 'Parque do Prazer', 'Avenida do Prazer', '2223', 'Goiânia', 'GO', 'Setor Bueno', '54321098', '62 54321098', 'Gustavo Oliveira'),
+    (11, 'Parque das Maravilhas', 'Rua das Maravilhas', '2425', 'Manaus', 'AM', 'Centro', '98765432', '92 98765432', 'Laura Mendes'),
+    (12, 'Parque da Aventura', 'Avenida da Aventura', '2627', 'Curitiba', 'PR', 'Batel', '65432109', '41 65432109', 'Pedro Almeida'),
+    (13, 'Parque Radical', 'Rua Radical', '2829', 'Belém', 'PA', 'Pedreira', '32109876', '91 32109876', 'Mariana Costa'),
+    (14, 'Parque das Emoções', 'Avenida das Emoções', '3031', 'Vitória', 'ES', 'Jardim da Penha', '09876543', '27 98765432', 'Marcos Oliveira'),
+    (15, 'Parque do Prazer', 'Rua do Prazer', '3233', 'Natal', 'RN', 'Ponta Negra', '87654321', '84 87654321', 'Juliana Santos'),
+    (16, 'Parque da Aventura', 'Avenida da Aventura', '3435', 'Maceió', 'AL', 'Pajuçara', '76543210', '82 76543210', 'Lucas Oliveira'),
+    (17, 'Parque dos Sonhos', 'Rua dos Sonhos', '3637', 'Campo Grande', 'MS', 'Centro', '54321098', '67 54321098', 'Isabela Fernandes'),
+    (18, 'Parque Radical', 'Avenida Radical', '3839', 'São Luís', 'MA', 'Renascença', '43210987', '98 43210987', 'Matheus Almeida'),
+    (19, 'Parque das Maravilhas', 'Rua das Maravilhas', '4041', 'Teresina', 'PI', 'Centro', '21098765', '86 21098765', 'Gabriela Santos'),
+	(20, 'Parque do Prazer', 'Avenida do Prazer', '4243', 'Cuiabá', 'MT', 'Bosque da Saúde', '10987654', '65 10987654', 'Thiago Oliveira');
+```
+
+**Inserção na tabela Atracao**
+```sql
+INSERT INTO Atracao (ID_Atracao, Nome, Capacidade, Tempo_Duracao, ID_Parque)
+VALUES
+    (1, 'Montanha-Russa Radical', 20, 120, 1),
+    (2, 'Carrossel dos Sonhos', 30, 10, 2),
+    (3, 'Casa dos Horrores', 15, 15, 3),
+    (4, 'Roda-Gigante do Encanto', 40, 15, 4),
+    (5, 'Barco Pirata', 25, 8, 5),
+    (6, 'Cinema 5D', 20, 20, 6),
+    (7, 'Trem Fantasma', 30, 12, 7),
+    (8, 'Bumper Cars', 20, 5, 8),
+    (9, 'Canoa Selvagem', 15, 10, 9),
+    (10, 'Carrinho de Bate-Bate', 20, 5, 10),
+    (11, 'Teleférico do Prazer', 25, 10, 11),
+    (12, 'Torre do Terror', 10, 15, 12),
+    (13, 'Tiro ao Alvo', 20, 5, 13),
+    (14, 'Barco Viking', 30, 8, 14),
+    (15, 'Circuito Radical', 20, 30, 15),
+    (16, 'Carrossel dos Sonhos', 25, 10, 16),
+    (17, 'Montanha-Russa Maluca', 20, 90, 17),
+    (18, 'Casa dos Espelhos', 15, 10, 18),
+    (19, 'Balão dos Sonhos', 30, 15, 19),
+    (20, 'Gira-Gira do Prazer', 15, 8, 20);
+```
+
+**Inserção na tabela Ingresso**
+```sql
+INSERT INTO Ingresso (ID_Ingresso, Tipo, Preco, Data_Compra, ID_Visitante, ID_Parque)
+VALUES
+    (1, 'Meia', 25.00, '2024-05-01', 54, 1),
+    (2, 'Meia', 25.00, '2024-05-02', 60, 2),
+    (3, 'Meia', 25.00, '2024-05-03', 42, 3),
+    (4, 'Meia', 25.00, '2024-05-04', 61, 4),
+    (5, 'Meia', 25.00, '2024-05-05', 59, 5),
+    (6, 'Meia', 25.00, '2024-05-06', 48, 6),
+    (7, 'Meia', 25.00, '2024-05-07', 53, 7),
+    (8, 'Meia', 25.00, '2024-05-08', 45, 8),
+    (9, 'Meia', 25.00, '2024-05-09', 50, 9),
+    (10, 'Meia', 25.00, '2024-05-10', 58, 10),
+    (11, 'Inteira', 50.00, '2024-05-11', 44, 11),
+    (12, 'Inteira', 50.00, '2024-05-12', 51, 12),
+    (13, 'Inteira', 50.00, '2024-05-13', 57, 13),
+    (14, 'Inteira', 50.00, '2024-05-14', 52, 14),
+    (15, 'Inteira', 50.00, '2024-05-15', 47, 15),
+    (16, 'Inteira', 50.00, '2024-05-16', 56, 16),
+    (17, 'Inteira', 50.00, '2024-05-17', 46, 17),
+    (18, 'Inteira', 50.00, '2024-05-18', 49, 18),
+    (19, 'Inteira', 50.00, '2024-05-19', 55, 19),
+    (20, 'Inteira', 50.00, '2024-05-20', 43, 20);
+```
 
 
 
