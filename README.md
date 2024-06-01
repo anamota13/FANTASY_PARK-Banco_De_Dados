@@ -116,17 +116,18 @@ CREATE TABLE Email_Visitante (
 
 Para concluir a criação da estrutura da tabela Visitante, foi calculado o atributo Idade (Atributo Derivado): 
 ``` sql
-CREATE VIEW VisitanteComIdade AS
 SELECT
-    ID_Visitante,
+    Nome,
+    CPF,
+    Rua,
+    Numero,
+    Cidade,
+    Estado,
+    CEP,
     Data_Nascimento,
-    CASE 
-        WHEN MONTH(Data_Nascimento) < MONTH(GETDATE()) 
-            OR (MONTH(Data_Nascimento) = MONTH(GETDATE()) AND DAY(Data_Nascimento) <= DAY(GETDATE())) 
-        THEN DATEDIFF(YEAR, Data_Nascimento, GETDATE()) 
-        ELSE DATEDIFF(YEAR, Data_Nascimento, GETDATE()) - 1 
-    END AS Idade
-FROM Visitante;
+    DATEDIFF(YEAR, Data_Nascimento, GETDATE()) AS Idade
+FROM
+    Visitante;
 ```
 
 **Criação da tabela Funcionário**
@@ -185,6 +186,44 @@ CREATE TABLE Ingresso (
     FOREIGN KEY (ID_Visitante) REFERENCES Visitante(ID_Visitante),
     FOREIGN KEY (ID_Parque) REFERENCES Parque(ID_Parque)
 );
+```
+## 5. Inserção de Dados
+
+Nessa etapa foi realizada a inserção dos dados em cada uma das tabelas, contendo no mínimo 20 dados inseridos.
+```sql
+INSERT INTO Visitante (Nome, CPF, Rua, Numero, Cidade, Estado, CEP, Data_Nascimento)
+VALUES
+    ('João da Silva', '123.456.789-00', 'Rua das Flores', '123', 'São Paulo', 'SP', '12345-678', '1990-05-15'),
+    ('Maria Oliveira', '987.654.321-00', 'Rua dos Ipês', '456', 'Rio de Janeiro', 'RJ', '98765-432', '1985-10-20'),
+    ('Pedro Santos', '456.789.123-00', 'Avenida Central', '789', 'Belo Horizonte', 'MG', '45678-912', '2000-03-25'),
+    ('Ana Souza', '321.654.987-00', 'Rua das Palmeiras', '1011', 'Salvador', 'BA', '32165-498', '1978-08-05'),
+    ('Carlos Pereira', '789.123.456-00', 'Rua dos Sabiás', '1213', 'Florianópolis', 'SC', '78912-345', '1995-12-30'),
+    ('Fernanda Lima', '654.987.321-00', 'Avenida das Acácias', '1415', 'Brasília', 'DF', '65498-732', '1982-06-10'),
+    ('Gabriel Costa', '234.567.890-00', 'Rua das Oliveiras', '1617', 'Porto Alegre', 'RS', '23456-789', '1998-01-05'),
+    ('Juliana Oliveira', '876.543.210-00', 'Rua dos Girassóis', '1819', 'Recife', 'PE', '87654-321', '1973-09-12'),
+    ('Lucas Mendes', '345.678.901-00', 'Avenida dos Jasmins', '2021', 'Fortaleza', 'CE', '34567-890', '1993-04-18'),
+    ('Mariana Almeida', '542.210.987-00', 'Rua das Orquídeas', '2223', 'Goiânia', 'GO', '54321-098', '1980-11-08'),
+    ('Rafael Silva', '654.321.098-00', 'Rua dos Cravos', '2627', 'Curitiba', 'PR', '65432-109', '1996-02-28'),
+    ('Sandra Santos', '321.098.765-00', 'Rua das Rosas', '2829', 'Belém', 'PA', '32109-876', '1975-05-22'),
+    ('Thiago Oliveira', '098.765.432-00', 'Avenida dos Pinheiros', '3031', 'Vitória', 'ES', '09876-543', '1991-09-15'),
+    ('Vanessa Pereira', '876.543.211-00', 'Rua dos Antúrios', '3233', 'Natal', 'RN', '87654-321', '1984-03-07'),
+    ('Amanda Souza', '765.432.109-00', 'Avenida das Violetas', '3435', 'Maceió', 'AL', '76543-210', '1989-12-11'),
+    ('Bruno Costa', '543.210.987-00', 'Rua das Margaridas', '3637', 'Campo Grande', 'MS', '54321-098', '1977-08-24'),
+    ('Carolina Lima', '432.109.876-00', 'Avenida dos Flamboyants', '3839', 'São Luís', 'MA', '43210-987', '1994-01-17'),
+    ('Daniel Mendes', '210.987.654-00', 'Rua dos Lírios', '4041', 'Teresina', 'PI', '21098-765', '1986-06-03'),
+    ('Elaine Almeida', '109.876.543-00', 'Avenida das Hortênsias', '4243', 'Cuiabá', 'MT', '10987-654', '1983-04-29')
+    ('Fábio Santos', '210.123.456-78', 'Rua das Magnólias', '4546', 'Porto Velho', 'RO', '21012-345', '1998-11-03');
+```
+Consultando a Idade de apenas um visitante específico:
+```sql
+SELECT
+    Nome,
+    Data_Nascimento,
+    DATEDIFF(YEAR, Data_Nascimento, GETDATE()) AS Idade
+FROM
+    Visitante
+WHERE
+    Nome = 'João da Silva';
 ```
 
 
