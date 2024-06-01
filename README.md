@@ -87,6 +87,7 @@ CREATE TABLE Visitante (
     Estado CHAR(2) NOT NULL,
     CEP CHAR(9) NOT NULL,
     Data_Nascimento DATE NOT NULL,
-); ```
+);
+```
 
 
