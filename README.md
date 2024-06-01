@@ -68,3 +68,11 @@ Veja abaixo a Modelagem Conceitual do projeto:
 
 Veja abaixo a Modelagem Lógica do projeto: 
 
+## 4. Modelagem Física 
+
+Para contruir a Modelagem Física do Fantasy Park foi criado o banco de dados:
+```
+CREATE DATABASE Fantasy Park
+```
+
+
