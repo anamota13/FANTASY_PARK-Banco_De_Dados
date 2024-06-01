@@ -575,6 +575,7 @@ ORDER BY
 ![Consulta 9(P2)](https://github.com/anamota13/FANTASY_PARK-Banco_De_Dados/assets/110187484/d199c699-0da7-4e8b-aec4-4741140f22c1)
 
 **Consulta 10: Detalhes de Visitantes, Ingressos, Funcionários e Parques**
+
 OBS:A consulta vai mostrar o nome do visitante, o tipo de ingresso que ele comprou, o nome do funcionário que o atendeu, e o nome do parque onde tudo isso ocorreu.
 ```sql
 SELECT 
