@@ -75,4 +75,18 @@ Para contruir a Modelagem Física do Fantasy Park foi criado o banco de dados:
 CREATE DATABASE Fantasy_Park
 ```
 
+Agora, para que nosso banco fique estruturado, foi efetuado a criação das tabelas da seguinte maneira: 
+``` sql
+CREATE TABLE Visitante (
+    ID_Visitante INT AUTO_INCREMENT PRIMARY KEY,
+    Nome VARCHAR(100) NOT NULL,
+    CPF CHAR(14) NOT NULL UNIQUE,
+    Rua VARCHAR(50) NOT NULL,
+    Numero VARCHAR(10) NOT NULL,
+    Cidade VARCHAR(50) NOT NULL,
+    Estado CHAR(2) NOT NULL,
+    CEP CHAR(9) NOT NULL,
+    Data_Nascimento DATE NOT NULL,
+); ```
+
 
