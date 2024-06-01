@@ -370,5 +370,5 @@ WHERE Nome = 'João da Silva';
 ```
 ![image](https://github.com/anamota13/FANTASY_PARK-Banco_De_Dados/blob/main/CRUD/DELETE.png?raw=true)
 
-Então, foi utlizando todos as operações do CRUD, criando o registro do funcionário João da Silva, lendo todos os registros dos funcionários e dos que operam na área da limpeza, atualizando o salário do funcionário João da Silva e, por fim, deletando o registro dele. 
+Então, foi utilizadas todas as operações do CRUD, criando o registro do funcionário João da Silva, lendo todos os registros dos funcionários e dos que operam na área da limpeza, atualizando o salário do funcionário João da Silva e, por fim, deletando o registro dele. 
 
