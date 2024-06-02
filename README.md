@@ -52,7 +52,7 @@ A empresa Fantasy Parks administra diversos parques de diversões espalhados pel
 
 ### 5. Ingresso
 - **ID_Ingresso**: Chave primária que identifica unicamente cada ingresso. (Atributo Simples)
-- **Tipo**: Tipo do ingresso, como Diário, Anual, VIP etc. (Atributo Simples)
+- **Tipo**: Tipo do ingresso, como Meia ou Inteira. (Atributo Simples)
 - **Preço**: Preço do ingresso. (Atributo Simples)
 - **Data_Compra**: Data em que o ingresso foi comprado. (Atributo Simples)
 - **ID_Visitante**: Identificação do visitante que comprou o ingresso. (Chave Estrangeira)
@@ -70,7 +70,7 @@ Veja abaixo a Modelagem Lógica do projeto:
 
 ## 4. Modelagem Física 
 
-Para contruir a Modelagem Física do Fantasy Park foi criado o banco de dados:
+Para construir a Modelagem Física do Fantasy Park foi criado o banco de dados:
 ``` sql
 CREATE DATABASE Fantasy_Park
 ```
